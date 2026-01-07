@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "./utils";
@@ -41,7 +41,7 @@ export function Navbar() {
           KETAN<span className="text-green-500">.dev</span>
         </div>
         <div className="hidden md:flex gap-8 items-center">
-          {navLinks.map((link,index) => (
+          {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
