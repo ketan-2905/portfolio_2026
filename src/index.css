@@ -1,1 +1,59 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'VT323';
+  src: url('/fonts/Astroz Trial.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'VT323', monospace;
+}
+
+@font-face {
+  font-family: 'Astroz';
+  src: url('/fonts/Astroz Trial.ttf');
+}
+@font-face {
+  font-family: 'Fishel';
+  src: url('/fonts/Fishel.ttf');
+}
+@font-face {
+  font-family: 'Monoton';
+  src: url('/fonts/Monoton-Regular.ttf');
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Regular.ttf');
+}
+@font-face {
+  font-family: 'VT323';
+  src: url('/fonts/VT323-Regular.ttf');
+}
+@font-face {
+  font-family: "Stick";
+  src: url('/fonts/Stick-Regular.ttf');
+}
+@font-face {
+  font-family: "TheSignature";
+  src: url('/fonts/Thesignature.ttf');
+}
+@font-face {
+  font-family: "Now";
+  src: url('/fonts/Now-Regular.otf');
+}
+
+.font-astroz { font-family: 'Astroz', sans-serif; }
+.font-fishel { font-family: 'Fishel', sans-serif; }
+.font-monoton { font-family: 'Monoton', cursive; }
+.font-vt323 { font-family: 'VT323', monospace; }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-roboto { font-family: 'Roboto', sans-serif; }
+.font-stick { font-family: 'Stick', sans-serif; }
+.font-the-signature { font-family: 'TheSignature', sans-serif; }
+.font-now { font-family: 'Now', sans-serif; }
