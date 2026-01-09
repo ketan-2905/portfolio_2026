@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useGLTF, Float } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { TerminalText } from "./TerminalText";
+import TerminalText from "./TerminalText";
 
 const SCREEN_CONFIGS = [
   {
@@ -16,7 +16,7 @@ const SCREEN_CONFIGS = [
   },
   {
     id: "Object_216",
-    messages: ["NEXT_JS\nV15.0.1", "STATUS: OK"],
+    messages: ["NEXT_JS\nV15.0.1", "STATUS: OKKKK"],
     mode: "static",
     repeat: true,
     x: -0.5,
@@ -112,16 +112,27 @@ export function VintageComputers({ modelPath }: { modelPath: string }) {
             const parent = textGroupsRef.current.get(config.id);
             if (!parent) return null;
             return (
+              // <TerminalText
+              //   key={config.id}
+              //   parent={parent}
+              //   messages={config.messages}
+              //   mode={config.mode}
+              //   repeat={config.repeat}
+              //   fontSize={config.size}
+              //   anchorX="left"
+              //   font="/fonts/VT323-Regular.ttf"
+              // />
               <TerminalText
-                key={config.id}
-                parent={parent}
-                messages={config.messages}
-                mode={config.mode}
-                repeat={config.repeat}
-                fontSize={config.size}
-                anchorX="left"
-                font="/fonts/VT323-Regular.ttf"
-              />
+  key={config.id}
+  parent={parent}
+  messages={config.messages}
+  mode={config.mode}
+  repeat={config.repeat}
+  fontSize={config.size}
+  anchorX="left"
+  font="/fonts/VT323-Regular.ttf"
+/>
+
             );
           })}
       </Float>

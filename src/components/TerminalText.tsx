@@ -1,13 +1,20 @@
+import { createPortal } from "@react-three/fiber";
 import { useState, useEffect, useMemo } from "react";
 import { Text } from "@react-three/drei";
 import * as THREE from "three";
 
-export function TerminalText({
+/* Replacement TerminalText using createPortal */
+function TerminalText({
   messages,
   speed = 40,
   pause = 3000,
   mode = "type",
   repeat = true,
+  parent = null,           // <-- expect a THREE.Object3D here
+  fontSize = 0.12,        // default font size (tweak per-screen)
+  font = "/fonts/VT323-Regular.ttf",
+  anchorX = "left",
+  anchorY = "top",
   ...props
 }: any) {
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
@@ -21,7 +28,7 @@ export function TerminalText({
     [messages]
   );
 
-  // Sync with the 3.5s main loader
+  // Sync with the 3.5s main loader (you already had this)
   useEffect(() => {
     const startTimer = setTimeout(() => setIsReady(true), 3500);
     return () => clearTimeout(startTimer);
@@ -48,12 +55,12 @@ export function TerminalText({
             );
             return newLines;
           });
-          setCurrentCharIdx(currentCharIdx + 1);
+          setCurrentCharIdx((c) => c + 1);
         }, speed);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
-          setCurrentLineIdx(currentLineIdx + 1);
+          setCurrentLineIdx((i) => i + 1);
           setCurrentCharIdx(0);
         }, speed * 2);
         return () => clearTimeout(timeout);
@@ -82,16 +89,34 @@ export function TerminalText({
     isReady,
   ]);
 
-  return (
-    <Text {...props} lineHeight={1.1} textAlign="left" anchorY="top">
+  const textElement = (
+    <Text
+      font={font}
+      fontSize={fontSize}
+      lineHeight={1.1}
+      textAlign="left"
+      anchorX={anchorX}
+      anchorY={anchorY}
+      {...props}
+    >
       {displayedLines.join("\n")}
       <meshBasicMaterial
         color="#ffffff"
         transparent
-        opacity={0.9}
+        opacity={0.95}
         depthTest={false}
         side={THREE.DoubleSide}
       />
     </Text>
   );
+
+  // If a valid parent (THREE.Object3D) is provided, render into it.
+  if (parent && parent.isObject3D) {
+    return createPortal(textElement, parent);
+  }
+
+  // fallback: render normally in the scene root (keeps backward compatibility)
+  return textElement;
 }
+
+export default TerminalText
