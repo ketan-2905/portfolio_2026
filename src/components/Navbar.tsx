@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { cn } from "./utils";
+import { cn } from "../utils";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

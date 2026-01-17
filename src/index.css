@@ -48,6 +48,11 @@ body {
   src: url('/fonts/Now-Regular.otf');
 }
 
+@font-face {
+  font-family: "CascadiaMono";
+  src: url('/fonts/CascadiaMono-VariableFont_wght.ttf');
+}
+
 .font-astroz { font-family: 'Astroz', sans-serif; }
 .font-fishel { font-family: 'Fishel', sans-serif; }
 .font-monoton { font-family: 'Monoton', cursive; }
@@ -57,3 +62,16 @@ body {
 .font-stick { font-family: 'Stick', sans-serif; }
 .font-the-signature { font-family: 'TheSignature', sans-serif; }
 .font-now { font-family: 'Now', sans-serif; }
+.font-cascadia-mono { font-family: 'CascadiaMono', sans-serif; }
+
+
+/* blinking cursor */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: blink 1s step-end infinite;
+}

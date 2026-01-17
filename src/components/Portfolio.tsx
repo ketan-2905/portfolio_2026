@@ -21,63 +21,83 @@ import {
   Mail,
   ArrowDown,
   Layers,
+  Boxes,
+  Trophy,
 } from "lucide-react";
+import Section from "./Section";
+import HackathonItem from "./HackathonItem";
+import DotClockExperiment from "./Dotspace";
 
 import { VintageComputers } from "./VintageComputers";
 import { LoadingScreen } from "./LoadingScreen";
 import { Navbar } from "./Navbar";
-import { Section } from "./Section";
 import { SkillCard } from "./SkillCard";
-import { ProjectCard } from "./ProjectCard";
+import FeaturedProject from "./ProjectCard";
 import { ContactBtn } from "./ContactBtn";
-import { cn } from "./utils";
+import { cn } from "../utils";
+import Render from "./Model";
+import Extracurricular from "./Extracurricular";
 
 const SKILLS_DATA = [
   {
     category: "Core_Logic",
     icon: <Code2 className="text-blue-400" />,
     skills: ["TypeScript", "JavaScript", "Python", "SQL"],
-    status: "98%",
   },
   {
     category: "Visual_Sys",
     icon: <Layers className="text-purple-400" />,
     skills: ["React", "Next.js", "Three.js", "Motion"],
-    status: "95%",
   },
   {
     category: "Ops_Infrastructure",
     icon: <Database className="text-orange-400" />,
     skills: ["Node.js", "FastAPI", "Docker", "Postgres"],
-    status: "90%",
   },
 ];
 
-const PROJECTS_DATA = [
+const featuredProjects = [
   {
-    title: "3D Retro Portfolio",
-    description:
-      "Highly interactive 3D portfolio using R3F and scroll-linked animations.",
-    tech: ["Next.js", "R3F"],
-    color: "green",
+    title: "Fincognia — Autonomous Agentic Finance",
+    desc: "An AI-driven financial co-pilot for gig workers that predicts liquidity risks with 85% accuracy, autonomously prevents EMI defaults, optimizes insurance and tax workflows, and enables real-time credit simulations to ensure long-term financial solvency.",
+    tech: [
+      "Machine Learning",
+      "Agentic AI",
+      "Generative AI",
+      "Financial Modeling",
+      "Predictive Analytics",
+      "Tax & Insurance Automation",
+    ],
+    side: "left",
+    imagesrc: "/project/fincogina.png",
+    demolink: "https://fincogina.vercel.app/",
   },
   {
-    title: "Intelligent Pipeline",
-    description: "Real-time data processing backend with predictive analytics.",
-    tech: ["Python", "FastAPI"],
-    color: "blue",
+    title: "CyberSecure — AI-Powered Network Intrusion Detection",
+    desc: "An end-to-end AI-powered NIDS achieving 98% attack detection accuracy using XGBoost, explainable AI (SHAP + LLM-generated insights), and blockchain-backed threat integrity via Merkle Trees and RSA-2048 signatures, delivering real-time, tamper-proof network security intelligence.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Python",
+      "XGBoost",
+      "SHAP (Explainable AI)",
+      "FastAPI",
+      "Blockchain (Merkle Trees)",
+      "RSA-2048",
+      "Network Security",
+    ],
+    side: "right",
+    imagesrc: "/project/cyberSecure.png",
+    demolink: "https://redact-cybersecure-tau.vercel.app/",
   },
+];
+const hackathons = [
   {
-    title: "Solar System Viz",
-    description: "Interactive 3D space simulation with real physics data.",
-    tech: ["Three.js", "GLSL"],
-    color: "orange",
-  },
-  {
-    title: "Microservices Core",
-    description: "Scalable architecture handling high-volume transactions.",
-    tech: ["Node", "Docker"],
-    color: "purple",
+    title: "Hackxios 2K25",
+    award: "Winner (Innovation Track)",
+    date: "DEC 2025",
+    desc: "Built Fincognia, an autonomous agentic finance co-pilot for gig workers that predicts liquidity risks with 85% accuracy, autonomously prevents EMI defaults, optimizes insurance and tax workflows, and improves long-term credit health through real-time simulations.",
   },
 ];
 
@@ -87,16 +107,16 @@ const CONTACT_DATA = [
     label: "Email",
     href: "mailto:ketangaikwad2905@gmail.com",
   },
-  { icon: <Linkedin />, label: "LinkedIn", href: "#" },
-  { icon: <Github />, label: "GitHub", href: "#" },
+  { icon: <Linkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/ketan-gaikwad-073171320/" },
+  { icon: <Github />, label: "GitHub", href: "https://github.com/ketan-2905" },
 ];
 
 const letterStyles = [
-  { font: 'font-astroz', color: 'text-green-400' },
-  { font: 'font-fishel', color: 'text-cyan-400' },
-  { font: 'font-monoton', color: 'text-white' },
-  { font: 'font-vt323', color: 'text-green-500' },
-  { font: 'font-the-signature', color: 'text-green-300'},
+  { font: "font-astroz", color: "text-green-400" },
+  { font: "font-fishel", color: "text-cyan-400" },
+  { font: "font-monoton", color: "text-white" },
+  { font: "font-vt323", color: "text-green-500" },
+  { font: "font-the-signature", color: "text-green-300" },
 ];
 /* ==========================================================
    4. MAIN PAGE INTEGRATION
@@ -113,7 +133,7 @@ export default function PortfolioPage() {
   const smoothClipScale = useSpring(clipScale, { stiffness: 80, damping: 25 });
   const clipPathValue = useTransform(
     smoothClipScale,
-    (v) => `circle(${v}% at 50% 50%)`
+    (v) => `circle(${v}% at 50% 50%)`,
   );
 
   const handleScrollDown = () =>
@@ -211,60 +231,63 @@ export default function PortfolioPage() {
             ))}
           </h1> */}
 
-{/* WELCOME TO MY SECTION */}
-<motion.div className="flex gap-2 mb-4">
-  {"WELCOME TO MY ".split("").map((l, i) => {
-    const style = letterStyles[i % letterStyles.length];
-    return  (
-    <span
-      key={i}
-      className={cn(
-        style.font,
-        style.color,
-        "md:text-[15px] text-[12px] tracking-[0.1em] transition-colors duration-500 text-white"
-      )}
-    >
-      {l}
-    </span>
-  )
-  })}
-</motion.div>
+          {/* WELCOME TO MY SECTION */}
+          <motion.div className="flex gap-2 mb-4">
+            {"WELCOME TO MY ".split("").map((l, i) => {
+              const style = letterStyles[i % letterStyles.length];
+              return (
+                <span
+                  key={i}
+                  className={cn(
+                    style.font,
+                    style.color,
+                    "md:text-[15px] text-[12px] tracking-[0.1em] transition-colors duration-500 text-white",
+                  )}
+                >
+                  {l}
+                </span>
+              );
+            })}
+          </motion.div>
 
-{/* PORTFOLIO SECTION */}
-<h1 className="flex overflow-y-hidden text-6xl md:text-9xl font-black mix-blend-difference tracking-tighter">
-  {"PORTFOLIO".split("").map((char, i) => {
-    const style = letterStyles[i % letterStyles.length];
-    
-    return (
-      <motion.span
-        key={i}
-        initial={{ y: "110%", opacity: 0 }} // Use percentages for cleaner entry
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          delay: 3.5 + i * 0.1,
-          type: "spring",
-          stiffness: 70, // Slightly lower stiffness for smoother movement
-          damping: 15
-        }}
-        // The Secret Sauce: transform-gpu and will-change
-        className={cn(
-          style.font, 
-          style.color, 
-          (i=== 4)?"font-[10]" :"",
-          "hover:text-white transition-colors cursor-default transform-gpu"
-        )}
-        style={{
-          willChange: "transform, opacity",
-          // Only apply textShadow if the animation is basically finished
-          // Or keep it subtle like this:
-          textShadow: i % 2 === 0 ? '0 4px 12px rgba(34, 197, 94, 0.3)' : 'none'
-        }}
-      >
-        {char}
-      </motion.span>
-    );
-  })}
-</h1>
+          {/* PORTFOLIO SECTION */}
+          <h1 className="flex overflow-y-hidden text-6xl md:text-9xl font-black mix-blend-difference tracking-tighter">
+            {"PORTFOLIO".split("").map((char, i) => {
+              const style = letterStyles[i % letterStyles.length];
+
+              return (
+                <motion.span
+                  key={i}
+                  initial={{ y: "110%", opacity: 0 }} // Use percentages for cleaner entry
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    delay: 3.5 + i * 0.1,
+                    type: "spring",
+                    stiffness: 70, // Slightly lower stiffness for smoother movement
+                    damping: 15,
+                  }}
+                  // The Secret Sauce: transform-gpu and will-change
+                  className={cn(
+                    style.font,
+                    style.color,
+                    i === 4 ? "font-[10]" : "",
+                    "hover:text-white transition-colors cursor-default transform-gpu",
+                  )}
+                  style={{
+                    willChange: "transform, opacity",
+                    // Only apply textShadow if the animation is basically finished
+                    // Or keep it subtle like this:
+                    textShadow:
+                      i % 2 === 0
+                        ? "0 4px 12px rgba(34, 197, 94, 0.3)"
+                        : "none",
+                  }}
+                >
+                  {char}
+                </motion.span>
+              );
+            })}
+          </h1>
 
           <motion.button
             onClick={handleScrollDown}
@@ -295,7 +318,7 @@ export default function PortfolioPage() {
       >
         <div className="h-screen w-full pointer-events-none" />
 
-        <div className="max-w-6xl mx-auto px-6 pb-40">
+        <div className="max-w-6xl mx-auto px-6 pb-1">
           <Section id="about">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
@@ -318,13 +341,14 @@ export default function PortfolioPage() {
                 </p>
               </div>
               <div className="flex justify-center relative">
-                <div className="absolute inset-0 bg-green-500/5 blur-[100px] rounded-full" />
+                {/* <div className="absolute inset-0 bg-green-500/5 blur-[100px] rounded-full" />
                 <div className="w-56 h-56 md:w-80 md:h-80 relative flex items-center justify-center border border-white/5 rounded-3xl backdrop-blur-3xl">
                   <Cpu size={80} className="text-green-500 animate-pulse" />
                   <div className="absolute -top-4 -right-4 bg-green-500 text-black px-2 py-1 text-[10px] font-bold rounded">
                     LIVE_CORE
                   </div>
-                </div>
+                </div> */}
+                <Render />
               </div>
             </div>
           </Section>
@@ -337,13 +361,39 @@ export default function PortfolioPage() {
             </div>
           </Section>
 
-          <Section id="projects" title="System Deployments">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-              {PROJECTS_DATA.map((project, index) => (
-                <ProjectCard key={index} {...project} />
+          {/* SECTION 3: PROJECTS (Split Layout) */}
+          <Section id="projects" title="Featured Projects" icon={<Boxes />}>
+            {featuredProjects.map((project, index) => (
+              <FeaturedProject
+                key={index}
+                title={project.title}
+                desc={project.desc}
+                tech={project.tech}
+                side={project.side}
+                imagesrc={project.imagesrc}
+                demolink={project.demolink}
+              />
+            ))}
+          </Section>
+
+          {/* SECTION 4: HACKATHONS (Timeline) */}
+          <Section id="hackathons" title="Hackathon Logs" icon={<Trophy />}>
+            <div className="max-w-4xl mx-auto">
+              {hackathons.map((hackathon, index) => (
+                <HackathonItem
+                  key={index}
+                  title={hackathon.title}
+                  award={hackathon.award}
+                  date={hackathon.date}
+                  desc={hackathon.desc}
+                />
               ))}
             </div>
           </Section>
+
+          <DotClockExperiment />
+
+          <Extracurricular />
 
           <Section id="contact">
             <div className="bg-[#0f0f0f] border border-white/5 rounded-[2rem] p-10 md:p-24 text-center">
