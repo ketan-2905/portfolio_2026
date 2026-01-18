@@ -1,27 +1,11 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, FlaskConical, Download } from "lucide-react";
+import {FlaskConical, Download } from "lucide-react";
 import Section from "./Section";
 import { twMerge } from "tailwind-merge";
 import { clsx, type ClassValue } from "clsx";
 
 // --- UTILS & DATA ---
-
-function getYearProgress() {
-  const now = new Date();
-  const start = new Date(now.getFullYear(), 0, 0);
-  const diff = now.getTime() - start.getTime();
-  const oneDay = 1000 * 60 * 60 * 24;
-  const dayOfYear = Math.floor(diff / oneDay);
-  const isLeap = new Date(now.getFullYear(), 1, 29).getMonth() === 1;
-  const totalDays = isLeap ? 366 : 365;
-
-  const minutesToday = now.getHours() * 60 + now.getMinutes();
-  const dayPercent = (minutesToday / 1440) * 100;
-
-  return { dayOfYear, totalDays, dayPercent, minutesToday };
-}
-
 // --- UTILS ---
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -365,7 +349,7 @@ export default function DotClockExperiment() {
       setTimeout(() => {
         setIsDotHovered(false);
       }, 3000);
-    } else {
+    } else if(isDay) {
     }
     setIsCircleHovered(true);
     setTimeout(() => {

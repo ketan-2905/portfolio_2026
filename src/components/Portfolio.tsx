@@ -13,7 +13,6 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import {
-  Cpu,
   Database,
   Code2,
   Github,

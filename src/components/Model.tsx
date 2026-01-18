@@ -68,8 +68,8 @@ const Render: React.FC = () => {
 
   const handleTransition = (e: any) => {
     // Capture absolute screen coordinates
-    // setClickPos({ x: e.clientX, y: e.clientY });
-    // setIsTerminalOpen(true);
+    setClickPos({ x: e.clientX, y: e.clientY });
+    setIsTerminalOpen(true);
   };
 
   const handleCancel = () => {

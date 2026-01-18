@@ -286,7 +286,7 @@ import React, { useState, useEffect, useRef, type JSX } from "react";
 
 import { createPortal } from "react-dom";
 
-import { X, Folder, FileText, Terminal, Code2, ExternalLink, Download } from "lucide-react";
+import { X, Folder, FileText, Terminal, Code2, ExternalLink } from "lucide-react";
 
 import { motion } from "framer-motion";
 
