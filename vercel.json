@@ -9,19 +9,19 @@
         },
         {
           "key": "Content-Disposition",
-          "value": "attachment; filename=\"Dotspace.apk\""
+          "value": "attachment; filename=Dotspace.apk"
         }
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "^/download/(.*\\.apk)$",
-      "dest": "/download/$1"
+      "source": "/download/:file*.apk",
+      "destination": "/download/:file*.apk"
     },
     {
-      "src": "^(?!/download/).*",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
