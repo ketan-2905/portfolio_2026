@@ -1,18 +1,20 @@
 import React from "react";
 
-export function SkillCard({
-  category,
-  icon,
-  skills,
-}: {
+interface SkillCardProps
+{
   category: string;
   icon: React.ReactNode;
   skills: string[];
-}) {
+}
+const SkillCard:React.FC<SkillCardProps> = ({
+  category,
+  icon,
+  skills,
+}) => {
   return (
-    <div className="bg-[#121212] border border-white/[0.03] p-8 rounded-[1.5rem] relative overflow-hidden group hover:border-green-500/20 transition-all duration-500">
+    <div className="bg-[#121212] border border-white/3 p-8 rounded-3xl relative overflow-hidden group hover:border-green-500/20 transition-all duration-500">
       <div className="flex justify-between items-center mb-8">
-        <div className="p-3 bg-white/[0.02] rounded-2xl text-green-500">
+        <div className="p-3 bg-white/2 rounded-2xl text-green-500">
           {icon}
         </div>
       </div>
@@ -24,7 +26,7 @@ export function SkillCard({
         {skills.map((s) => (
           <span
             key={s}
-            className="text-xs text-white font-medium px-3 py-1 bg-white/[0.03] rounded-full border border-white/[0.05]"
+            className="text-xs text-white font-medium px-3 py-1 bg-white/3 rounded-full border border-white/5"
           >
             {s}
           </span>
@@ -33,3 +35,5 @@ export function SkillCard({
     </div>
   );
 }
+
+export default SkillCard

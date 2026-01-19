@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-export function LoadingScreen({ onFinished }: { onFinished: () => void }) {
+const LoadingScreen = ({ onFinished }: { onFinished: () => void }) => {
   const [percent, setPercent] = useState(0);
   useEffect(() => {
     const interval = setInterval(
@@ -19,7 +19,7 @@ export function LoadingScreen({ onFinished }: { onFinished: () => void }) {
     <motion.div
       exit={{ opacity: 0 }}
       // Font change
-      className="fixed inset-0 z-[200] bg-[#020202] flex flex-col items-center justify-center font-mono"
+      className="fixed inset-0 z-200 bg-[#020202] flex flex-col items-center justify-center font-mono"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -28,7 +28,7 @@ export function LoadingScreen({ onFinished }: { onFinished: () => void }) {
       >
         [ INITIALIZING_SYSTEM_CORE ]
       </motion.div>
-      <div className="w-48 h-[10px] bg-white/10 relative overflow-hidden">
+      <div className="w-48 h-2.5 bg-white/10 relative overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${percent}%` }}
@@ -41,3 +41,5 @@ export function LoadingScreen({ onFinished }: { onFinished: () => void }) {
     </motion.div>
   );
 }
+
+export default LoadingScreen

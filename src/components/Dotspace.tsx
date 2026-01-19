@@ -91,8 +91,8 @@ const DotMatrix: React.FC<{
   const currentIndex = dayOfYear - 1;
 
   return (
-    <div className="relative p-10 bg-[#080808] rounded-[2rem] border border-white/5 flex flex-col items-center shadow-2xl">
-      <div className="grid grid-cols-[repeat(15,minmax(0,1fr))] gap-2.5">
+    <div className="relative p-10 bg-[#080808] rounded-4xl border border-white/5 flex flex-col items-center shadow-2xl">
+      <div className="grid grid-cols-15 gap-2.5">
         {Array.from({ length: totalDays }).map((_, i) => {
           const isPast = i < currentIndex;
           const isCurrent = i === currentIndex;
@@ -169,7 +169,7 @@ const DayCircle: React.FC<{
 
   return (
     /* 1. Main Container: Removed aspect-square, added h-full or h-screen */
-    <div className="relative w-full h-full min-h-[500px] md:h-full bg-[#080808] rounded-[2rem] border border-white/5 flex flex-col items-center justify-between p-6 md:p-12 shadow-2xl overflow-hidden">
+    <div className="relative w-full h-full min-h-125 md:h-full bg-[#080808] rounded-4xl border border-white/5 flex flex-col items-center justify-between p-6 md:p-12 shadow-2xl overflow-hidden">
       {/* 2. SVG Wrapper: Flex-1 makes it take up available space */}
       <div className="relative w-full flex-1 flex items-center justify-center min-h-0">
         <div className="w-full max-w-[min(80vw,400px)] aspect-square">
@@ -286,7 +286,7 @@ const DayCircle: React.FC<{
           <span className="text-[#ffffff] text-base font-mono font-bold opacity-80">
             {format12h(activeTask.start)}
           </span>
-          <div className="w-4 h-[1px] bg-white/20" />
+          <div className="w-4 h-px bg-white/20" />
           <span className="text-[#ffffff] text-base font-mono font-bold opacity-80">
             {format12h(activeTask.end)}
           </span>

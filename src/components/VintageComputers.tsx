@@ -3,12 +3,13 @@ import { useGLTF, Float } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import TerminalText from "./TerminalText";
+import { TerminalMode } from "../constants/Terminal";
 
 const SCREEN_CONFIGS = [
   {
     id: "Object_213",
     messages: ["SYSTEM_BOOT...", "AUTH: GRANTED", "USER: KETAN", "> READY_"],
-    mode: "type",
+    mode: TerminalMode.TYPE,
     repeat: false,
     x: -0.5,
     y: 0.35,
@@ -16,8 +17,8 @@ const SCREEN_CONFIGS = [
   },
   {
     id: "Object_216",
-    messages: ["NEXT_JS\nV15.0.1", "STATUS: OKKKK"],
-    mode: "static",
+    messages: ["NEXT_JS","V15.0.1", "STATUS: OKKKK"],
+    mode: TerminalMode.STATIC,
     repeat: true,
     x: -0.5,
     y: 0.38,
@@ -26,7 +27,7 @@ const SCREEN_CONFIGS = [
   {
     id: "Object_219",
     messages: ["Hello World!"],
-    mode: "type",
+    mode: TerminalMode.TYPE,
     repeat: false,
     x: -0.5,
     y: 0.38,
@@ -34,8 +35,8 @@ const SCREEN_CONFIGS = [
   },
   {
     id: "Object_207",
-    messages: ["Scroll\nTo see More"],
-    mode: "type",
+    messages: ["Scroll","To see More"],
+    mode: TerminalMode.TYPE,
     repeat: true,
     x: -0.5,
     y: 0.4,
@@ -44,7 +45,7 @@ const SCREEN_CONFIGS = [
   {
     id: "Object_210",
     messages: ["Hi There!"],
-    mode: "static",
+    mode: TerminalMode.STATIC,
     repeat: true,
     x: -0.5,
     y: 0.38,
@@ -52,7 +53,7 @@ const SCREEN_CONFIGS = [
   },
 ];
 
-export function VintageComputers({ modelPath }: { modelPath: string }) {
+const VintageComputers = ({ modelPath }: { modelPath: string }) => {
   const { scene } = useGLTF(modelPath);
   const groupRef = useRef<THREE.Group>(null);
   const textGroupsRef = useRef<Map<string, THREE.Group>>(new Map());
@@ -83,17 +84,21 @@ export function VintageComputers({ modelPath }: { modelPath: string }) {
   }, [scene]);
 
   useFrame((state) => {
+
+
+    if (window.innerWidth < 768) return;
+
     if (!groupRef.current) return;
     const t = state.clock.getElapsedTime();
     groupRef.current.rotation.y = THREE.MathUtils.lerp(
       groupRef.current.rotation.y,
       (state.mouse.x * Math.PI) / 10 + Math.sin(t / 4) / 10,
-      0.05
+      0.05,
     );
     groupRef.current.rotation.x = THREE.MathUtils.lerp(
       groupRef.current.rotation.x,
       THREE.MathUtils.clamp((state.mouse.y * Math.PI) / 20, -0.05, 0.5),
-      0.05
+      0.05,
     );
   });
 
@@ -112,30 +117,21 @@ export function VintageComputers({ modelPath }: { modelPath: string }) {
             const parent = textGroupsRef.current.get(config.id);
             if (!parent) return null;
             return (
-              // <TerminalText
-              //   key={config.id}
-              //   parent={parent}
-              //   messages={config.messages}
-              //   mode={config.mode}
-              //   repeat={config.repeat}
-              //   fontSize={config.size}
-              //   anchorX="left"
-              //   font="/fonts/VT323-Regular.ttf"
-              // />
               <TerminalText
-  key={config.id}
-  parent={parent}
-  messages={config.messages}
-  mode={config.mode}
-  repeat={config.repeat}
-  fontSize={config.size}
-  anchorX="left"
-  font="/fonts/VT323-Regular.ttf"
-/>
-
+                key={config.id}
+                parent={parent}
+                messages={config.messages}
+                mode={config.mode}
+                repeat={config.repeat}
+                fontSize={config.size}
+                anchorX="left"
+                font="/fonts/VT323-Regular.ttf"
+              />
             );
           })}
       </Float>
     </group>
   );
 }
+
+export default VintageComputers

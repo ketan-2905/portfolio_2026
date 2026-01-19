@@ -1,7 +1,13 @@
 import Section from "./Section";
 import { ExternalLink, Star } from "lucide-react";
 
-const Extracurricular = () => {
+type ExtracurricularActivitiesType = {title: string;
+    description: string;
+    link: string;
+    tags: string[];
+    id: string;}
+
+const Extracurricular = ({ExtracurricularActivites}: {ExtracurricularActivites:ExtracurricularActivitiesType[]}) => {
   return (
     <Section id="extra" title="Club Leadership" icon={<Star />}>
       <div className="w-full">
@@ -26,24 +32,7 @@ const Extracurricular = () => {
 
         {/* Project Grid - Two clean, technical panes */}
         <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "DJS Nova Official",
-              description:
-                "Designed and developed the official landing page for the college astronomy club. Focused on strong brand identity, smooth navigation, and immersive 3D elements to deliver a premium first impression.",
-              link: "https://djsnovaspace.vercel.app",
-              tags: ["Landing Page", "Next.js", "3D Experience"],
-              id: "NOVA_01",
-            },
-            {
-              title: "Moon Gazing Showcase",
-              description:
-                "Built a visually engaging landing page for the 'Moon Gazing' event, highlighting key moments, activities, and experiences from the event through a clean UI and compelling visual storytelling.",
-              link: "https://moongazing.vercel.app",
-              tags: ["Event Showcase", "UI/UX", "Responsive Design"],
-              id: "MOON_02",
-            },
-          ].map((project) => (
+          {ExtracurricularActivites.map((project) => (
             <div
               key={project.id}
               className="group relative bg-[#0a0a0a] border border-white/5 p-8 rounded-2xl hover:border-green-500/30 transition-all duration-500"

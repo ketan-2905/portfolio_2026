@@ -1,14 +1,29 @@
 import { createPortal } from "@react-three/fiber";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { Text } from "@react-three/drei";
 import * as THREE from "three";
+import { TerminalMode } from "../constants/Terminal";
+
+export interface TerminalTextProps {
+  messages: string[];
+  speed?: number;
+  pause?: number;
+  mode?: TerminalMode;
+  repeat?: boolean;
+  parent?: THREE.Object3D | null;
+  fontSize?: number;
+  font?: string;
+  anchorX?: "left" | "center" | "right";
+  anchorY?: "top" | "middle" | "bottom";
+  children?: ReactNode;
+}
 
 /* Replacement TerminalText using createPortal */
-function TerminalText({
+const  TerminalText: React.FC<TerminalTextProps> =({
   messages,
   speed = 40,
   pause = 3000,
-  mode = "type",
+  mode = TerminalMode.TYPE,
   repeat = true,
   parent = null,           // <-- expect a THREE.Object3D here
   fontSize = 0.12,        // default font size (tweak per-screen)
@@ -16,19 +31,14 @@ function TerminalText({
   anchorX = "left",
   anchorY = "top",
   ...props
-}: any) {
+}) => {
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
   const [currentLineIdx, setCurrentLineIdx] = useState(0);
   const [currentCharIdx, setCurrentCharIdx] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [isReady, setIsReady] = useState(false);
 
-  const lines = useMemo(
-    () => (Array.isArray(messages) ? messages : messages.split("\n")),
-    [messages]
-  );
-
-  // Sync with the 3.5s main loader (you already had this)
+  // Sync with the 3.5s main loader
   useEffect(() => {
     const startTimer = setTimeout(() => setIsReady(true), 3500);
     return () => clearTimeout(startTimer);
@@ -36,14 +46,14 @@ function TerminalText({
 
   useEffect(() => {
     if (!isReady) return;
-    if (mode === "static") {
-      setDisplayedLines(lines);
+    if (mode === TerminalMode.STATIC) {
+      setDisplayedLines(messages);
       return;
     }
     if (isFinished) return;
 
-    if (currentLineIdx < lines.length) {
-      const currentLineText = lines[currentLineIdx];
+    if (currentLineIdx < messages.length) {
+      const currentLineText = messages[currentLineIdx];
       if (currentCharIdx < currentLineText.length) {
         const timeout = setTimeout(() => {
           setDisplayedLines((prev) => {
@@ -80,7 +90,7 @@ function TerminalText({
   }, [
     currentCharIdx,
     currentLineIdx,
-    lines,
+    messages,
     speed,
     pause,
     mode,
