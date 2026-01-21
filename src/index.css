@@ -8,8 +8,9 @@
 }
 
 body {
-  background-color: black;
+  background-color: #080808; /* Matches your content bg exactly */
   font-family: 'VT323', monospace;
+  overscroll-behavior-y: none; /* Prevents "rubber banding" reveal on mobile */
 }
 
 @font-face {
