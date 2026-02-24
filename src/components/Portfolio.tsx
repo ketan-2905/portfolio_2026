@@ -118,7 +118,7 @@ const Hackathons = [
   },{
   title: "DATATHON 2026 — Core Machine Learning Track",
   award: "Runner-Up",
-  date: "2026",
+  date: "JAN 2026",
   desc: "Developed a network-driven financial system simulation to model systemic risk propagation across interconnected institutions and analyze market stability. Built an end-to-end ML pipeline with mathematical modeling, data simulation, and risk prediction workflows, while designing backend architecture, database systems, and LLM-powered analytical components for real-world financial decision modeling.",
 }
 ];
