@@ -67,24 +67,47 @@ const FeaturedProjects = [
     demolink: "https://fincogina.vercel.app/",
   },
   {
-    title: "CyberSecure — AI-Powered Network Intrusion Detection",
-    desc: "An end-to-end AI-powered NIDS achieving 98% attack detection accuracy using XGBoost, explainable AI (SHAP + LLM-generated insights), and blockchain-backed threat integrity via Merkle Trees and RSA-2048 signatures, delivering real-time, tamper-proof network security intelligence.",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Python",
-      "XGBoost",
-      "SHAP (Explainable AI)",
-      "FastAPI",
-      "Blockchain (Merkle Trees)",
-      "RSA-2048",
-      "Network Security",
-    ],
-    side: "right",
-    imagesrc: "/project/cyberSecure.png",
-    demolink: "https://redact-cybersecure-tau.vercel.app/",
-  },
+  title: "NexusEvent — QR-Based Event Management Platform",
+  desc: "A full-stack event management platform enabling secure participant registration, QR-based check-in tracking, and real-time event analytics. Implements role-based authentication, email verification, camera-based QR scanning, and checkpoint flow monitoring with live dashboards for participant movement analysis, entry validation, and event-wide insights.",
+  tech: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Authentication & Email Verification",
+    "Role-Based Access Control",
+    "QR Code Generation & Scanning",
+    "Web Camera Integration",
+    "Real-Time Data Sync",
+    "Analytics Dashboard",
+    "PostgreSQL",
+    "Prisma",
+    "Event Tracking System",
+  ],
+  side: "right",
+  imagesrc: "/project/nexusEvent.png",
+  demolink: "https://nexusevent-drab.vercel.app/",
+},
+  {
+  title: "Real-Time Voice AI Interview Simulator",
+  desc: "A real-time voice-based AI interview platform that simulates technical interviews using live audio processing, speech-to-text transcription, and LLM-driven responses. Features WebSocket-based audio streaming, silence detection, session management, and intelligent interview generation using AssemblyAI and Llama-3 via Groq, delivering an interactive and realistic interview experience.",
+  tech: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "FastAPI",
+    "WebSocket",
+    "Audio Worklets",
+    "AssemblyAI (Speech-to-Text)",
+    "Llama-3 (Groq API)",
+    "Prisma",
+    "PostgreSQL",
+    "Real-Time Audio Processing",
+  ],
+  side: "left",
+  imagesrc: "/project/interviewAI.png",
+  demolink: "https://interview-prep-psi-murex.vercel.app/",
+},
+
 ];
 const Hackathons = [
   {
@@ -92,7 +115,12 @@ const Hackathons = [
     award: "Winner (Innovation Track)",
     date: "DEC 2025",
     desc: "Built Fincognia, an autonomous agentic finance co-pilot for gig workers that predicts liquidity risks with 85% accuracy, autonomously prevents EMI defaults, optimizes insurance and tax workflows, and improves long-term credit health through real-time simulations.",
-  },
+  },{
+  title: "DATATHON 2026 — Core Machine Learning Track",
+  award: "Runner-Up",
+  date: "2026",
+  desc: "Developed a network-driven financial system simulation to model systemic risk propagation across interconnected institutions and analyze market stability. Built an end-to-end ML pipeline with mathematical modeling, data simulation, and risk prediction workflows, while designing backend architecture, database systems, and LLM-powered analytical components for real-world financial decision modeling.",
+}
 ];
 
 const ExtracurricularActivites = [
