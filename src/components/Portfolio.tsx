@@ -18,7 +18,6 @@ import {
   Trophy,
   Terminal,
   Cpu,
-  File,
   Wrench,
   Server,
 } from "lucide-react";
