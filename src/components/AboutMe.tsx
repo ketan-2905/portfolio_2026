@@ -18,8 +18,8 @@ const AboutMe = () => {
           <span className="text-white border-b border-green-500/30">
             CSE (Data Science)
           </span>
-          . I specialize in building complex systems where robust performance
-          meets immersive user experience.
+          . Full-stack developer experienced in modern web and software development.
+Focused on building scalable, efficient applications.
         </p>
 
         {/* Resume Button */}
