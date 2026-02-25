@@ -117,7 +117,7 @@ const SkillData = [
 
 const FeaturedProjects = [
   {
-    title: "Fincognia — Autonomous Agentic Finance",
+    title: "Fincognia Autonomous Agentic Finance",
     desc: "An AI-driven financial co-pilot for gig workers that predicts liquidity risks with 85% accuracy, autonomously prevents EMI defaults, optimizes insurance and tax workflows, and enables real-time credit simulations to ensure long-term financial solvency.",
     tech: [
       "Machine Learning",
@@ -132,7 +132,7 @@ const FeaturedProjects = [
     demolink: "https://fincogina.vercel.app/",
   },
   {
-  title: "NexusEvent — QR-Based Event Management Platform",
+  title: "NexusEvent QR-Based Event Management Platform",
   desc: "A full-stack event management platform enabling secure participant registration, QR-based check-in tracking, and real-time event analytics. Implements role-based authentication, email verification, camera-based QR scanning, and checkpoint flow monitoring with live dashboards for participant movement analysis, entry validation, and event-wide insights.",
   tech: [
     "Next.js",
