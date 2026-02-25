@@ -18,6 +18,9 @@ import {
   Trophy,
   Terminal,
   Cpu,
+  File,
+  Wrench,
+  Server,
 } from "lucide-react";
 import Section from "./Section";
 import HackathonItem from "./HackathonItem";
@@ -32,21 +35,84 @@ import LoadingScreen from "./LoadingScreen";
 import Navbar from "./Navbar";
 import SkillCard from "./SkillCard";
 
+// const SkillData = [
+//   {
+//     category: "Core_Logic",
+//     icon: <Code2 className="text-blue-400" />,
+//     skills: ["TypeScript", "JavaScript", "Python", "SQL"],
+//   },
+//   {
+//     category: "Visual_Sys",
+//     icon: <Layers className="text-purple-400" />,
+//     skills: ["React", "Next.js", "Three.js", "Motion"],
+//   },
+//   {
+//     category: "Ops_Infrastructure",
+//     icon: <Database className="text-orange-400" />,
+//     skills: ["Node.js", "FastAPI", "Docker", "Postgres"],
+//   },
+// ];
+
 const SkillData = [
   {
-    category: "Core_Logic",
+    category: "Programming_Languages",
     icon: <Code2 className="text-blue-400" />,
-    skills: ["TypeScript", "JavaScript", "Python", "SQL"],
+    skills: [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Java",
+      "C",
+      "C++",
+    ],
   },
   {
-    category: "Visual_Sys",
+    category: "Frontend_Technologies",
     icon: <Layers className="text-purple-400" />,
-    skills: ["React", "Next.js", "Three.js", "Motion"],
+    skills: [
+      "React.js",
+      "Next.js",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Shadcn UI",
+      "Responsive Design",
+    ],
   },
   {
-    category: "Ops_Infrastructure",
+    category: "Backend_Technologies",
+    icon: <Server className="text-green-400" />,
+    skills: [
+      "Node.js",
+      "Express.js",
+      "FastAPI",
+      "RESTful APIs",
+      "WebSocket",
+    ],
+  },
+  {
+    category: "Databases",
     icon: <Database className="text-orange-400" />,
-    skills: ["Node.js", "FastAPI", "Docker", "Postgres"],
+    skills: [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Prisma ORM",
+      "Database Design",
+      "Query Optimization",
+    ],
+  },
+  {
+    category: "DevOps_&_Tools",
+    icon: <Wrench className="text-yellow-400" />,
+    skills: [
+      "Git",
+      "GitHub",
+      "Docker",
+      "Vercel",
+      "Render",
+    ],
   },
 ];
 
@@ -153,7 +219,7 @@ const ContactData = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/ketan-gaikwad-073171320/",
   },
-  { icon: <Github />, label: "GitHub", href: "https://github.com/ketan-2905" },
+  { icon: <Github />, label: "GitHub", href: "https://github.com/ketan-2905" }
 ];
 
 const letterStyles = [
