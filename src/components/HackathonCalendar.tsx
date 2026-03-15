@@ -30,14 +30,14 @@ calendarData[17].events = [
   {
     id: 'e1',
     title: '⚔️ HackNiche 4.0',
-    prize: '₹50k / 30k',
+    prize: '₹50k / 30k / 20k',
     url: 'https://hackniche4-0.devfolio.co/overview',
     prizeColor: 'text-green-600',
   },
   {
     id: 'e2',
     title: '⚔️ Recursion 7.0',
-    prize: '₹120k / 100k',
+    prize: '₹120k / 100k / 80k',
     url: 'https://unstop.com/hackathons/recursion-70-rajiv-gandhi-institute-of-technology-mumbai-1656541',
     prizeColor: 'text-green-600',
   },
@@ -49,7 +49,7 @@ calendarData[21].events = [
   {
     id: 'e3',
     title: '🏆 IdeaHack 2.0',
-    prize: '₹500k/300k',
+    prize: '₹500k / 300k / 200k',
     url: 'https://www.ideahackathon.com/',
     prizeColor: 'text-orange-500',
   },
