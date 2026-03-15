@@ -174,18 +174,40 @@ const FeaturedProjects = [
 },
 
 ];
+// const Hackathons = [
+//   {
+//     title: "Hackxios 2K25",
+//     award: "Winner (Innovation Track)",
+//     date: "DEC 2025",
+//     desc: "Built Fincognia, an autonomous agentic finance co-pilot for gig workers that predicts liquidity risks with 85% accuracy, autonomously prevents EMI defaults, optimizes insurance and tax workflows, and improves long-term credit health through real-time simulations.",
+//   },{
+//   title: "DATATHON 2026 — Core Machine Learning Track",
+//   award: "Runner-Up",
+//   date: "JAN 2026",
+//   desc: "Developed a network-driven financial system simulation to model systemic risk propagation across interconnected institutions and analyze market stability. Built an end-to-end ML pipeline with mathematical modeling, data simulation, and risk prediction workflows, while designing backend architecture, database systems, and LLM-powered analytical components for real-world financial decision modeling.",
+// }
+// ];
+
+
 const Hackathons = [
   {
     title: "Hackxios 2K25",
     award: "Winner (Innovation Track)",
     date: "DEC 2025",
     desc: "Built Fincognia, an autonomous agentic finance co-pilot for gig workers that predicts liquidity risks with 85% accuracy, autonomously prevents EMI defaults, optimizes insurance and tax workflows, and improves long-term credit health through real-time simulations.",
-  },{
-  title: "DATATHON 2026 — Core Machine Learning Track",
-  award: "Runner-Up",
-  date: "JAN 2026",
-  desc: "Developed a network-driven financial system simulation to model systemic risk propagation across interconnected institutions and analyze market stability. Built an end-to-end ML pipeline with mathematical modeling, data simulation, and risk prediction workflows, while designing backend architecture, database systems, and LLM-powered analytical components for real-world financial decision modeling.",
-}
+  },
+  {
+    title: "DATATHON 2026 — Core Machine Learning Track",
+    award: "Runner-Up",
+    date: "JAN 2026",
+    desc: "Developed a network-driven financial system simulation to model systemic risk propagation across interconnected institutions and analyze market stability. Built an end-to-end ML pipeline with mathematical modeling, data simulation, and risk prediction workflows, while designing backend architecture, database systems, and LLM-powered analytical components for real-world financial decision modeling.",
+  },
+  {
+    title: "HACKANOVA 5.0",
+    award: "2nd Runner-Up",
+    date: "MAR 2026",
+    desc: "Built LitAgent, an autonomous research literature agent that automates the academic literature review process. The system runs a 15-step research pipeline that retrieves papers from Semantic Scholar, arXiv, and PubMed, expands citation graphs, parses PDFs for structured insights, detects contradictions across studies, and synthesizes a comprehensive research report. It features a multi-agent 'LLM Council' debate system for peer-review style analysis, along with a Next.js research dashboard, Chrome extension with citation verification, and a mobile companion app.",
+  }
 ];
 
 const ExtracurricularActivites = [
