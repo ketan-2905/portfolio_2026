@@ -6,7 +6,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<PortfolioPage />} />
-      <Route path="/calendar" element={<HackathonCalendar />} />
+      <Route path="/cal" element={<HackathonCalendar />} />
     </Routes>
   )
 }
