@@ -224,7 +224,7 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
       title: '⚔️ AIRAVAT 3.0 – 24 Hour AI-Hackathon',
       prize: '₹100k',
       url: 'https://unstop.com/hackathons/airavat-30-24-hour-national-ai-hackathon-sardar-patel-institute-of-technology-spit-mumbai-1658777',
-      prizeColor: 'text-gray-600',
+      prizeColor: 'text-green-600',
       bgColor: 'bg-[#fecaca]', // red
     },
   ],
@@ -244,7 +244,7 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
       title: '⚔️ SummerHacks 2026',
       prize: '₹50k / ₹25k / ₹10k',
       url: 'https://luma.com/ak1yu6cn',
-      prizeColor: 'text-gray-600',
+      prizeColor: 'text-green-600',
       bgColor: 'bg-[#bbf7d0]', // emerald
     },
   ],
@@ -254,10 +254,20 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
       title: '⚔️ Box Box Hackathon',
       prize: '$300 / $150 / $75',
       url: 'https://box-box.devpost.com/',
-      prizeColor: 'text-gray-600',
+      prizeColor: 'text-green-600',
       bgColor: 'bg-[#fde68a]', // amber
     },
   ],
+  '2026-03-30': [
+  {
+    id: 'e1',
+    title: '🚀 Codeshastra XII Hackathon',
+    prize: '₹75K / ₹50K / ₹25K',
+    url: 'https://unstop.com/hackathons/codeshastra-xii-shri-vile-parle-kelavani-mandals-dwarkadas-j-sanghvi-college-of-engineering-djsce-mumbai-1660688',
+    prizeColor: 'text-green-600',
+    bgColor: 'bg-[#a7f3d0]', // green
+  },
+],
 };
 
 // --- Sub-component for Event Days ---
