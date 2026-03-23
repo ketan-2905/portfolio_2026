@@ -267,6 +267,17 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
     prizeColor: 'text-green-600',
     bgColor: 'bg-[#a7f3d0]', // green
   },
+ 
+],
+ '2026-04-03': [
+  {
+    id: 'e2',
+    title: '⚡ Hack X – 24 Hour Hackathon',
+    prize: '₹100k / ₹50k',
+    url: 'https://hack-x.devfolio.co/',
+    prizeColor: 'text-purple-600',
+    bgColor: 'bg-[#c4b5fd]', // purple
+  },
 ],
 };
 
