@@ -178,6 +178,7 @@ interface HackathonEvent {
   url: string;
   prizeColor: string;
   bgColor?: string;
+  clg?:string;
 }
 
 interface CalendarDay {
@@ -198,6 +199,7 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
       url: 'https://hackniche4-0.devfolio.co/overview',
       prizeColor: 'text-green-600',
       bgColor: 'bg-[#a7f3d0]', 
+      clg: "DJ"
     },
     {
       id: 'e2',
@@ -226,6 +228,7 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
       url: 'https://unstop.com/hackathons/airavat-30-24-hour-national-ai-hackathon-sardar-patel-institute-of-technology-spit-mumbai-1658777',
       prizeColor: 'text-green-600',
       bgColor: 'bg-[#fecaca]', // red
+      clg:"SPIT"
     },
   ],
   '2026-04-05': [
@@ -260,23 +263,25 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
   ],
   '2026-03-30': [
   {
-    id: 'e1',
+    id: 'e8',
     title: '🚀 Codeshastra XII Hackathon',
     prize: '₹75K / ₹50K / ₹25K',
     url: 'https://unstop.com/hackathons/codeshastra-xii-shri-vile-parle-kelavani-mandals-dwarkadas-j-sanghvi-college-of-engineering-djsce-mumbai-1660688',
     prizeColor: 'text-green-600',
     bgColor: 'bg-[#a7f3d0]', // green
+    clg: "DJ"
   },
  
 ],
  '2026-04-03': [
   {
-    id: 'e2',
+    id: 'e9',
     title: '⚡ Hack X – 24 Hour Hackathon',
     prize: '₹100k / ₹50k',
     url: 'https://hack-x.devfolio.co/',
     prizeColor: 'text-purple-600',
     bgColor: 'bg-[#c4b5fd]', // purple
+    clg:"KJ"
   },
 ],
 };
@@ -306,7 +311,7 @@ const EventDayCell = ({ day }: { day: CalendarDay }) => {
       {/* Header & Controls */}
       <div className="flex justify-between items-center mb-2 border-b-2 border-black pb-1">
         <span className={`font-vt323 text-2xl md:text-3xl font-bold leading-none ${day.isToday ? 'text-red-600 drop-shadow-[2px_2px_0px_#fff]' : 'text-black'}`}>
-          {day.date}
+          {day.date} {activeEvent.clg ?` ${activeEvent.clg}`: null }
         </span>
         
         {totalSlides > 1 && (
@@ -423,7 +428,7 @@ export default function HackathonCalendar() {
         <div className="text-center mb-8 md:mb-12 px-2">
           
           {/* Responsive Navigation Buttons & Month Title */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+          <div className="flex gap-0 md:flex-row items-center justify-center md:gap-4 mb-4">
             <button 
               onClick={handlePrevMonth} 
               disabled={isPrevDisabled}
@@ -445,7 +450,7 @@ export default function HackathonCalendar() {
             </button>
           </div>
 
-          <p className="text-sm md:text-lg font-bold text-gray-700 uppercase tracking-wider flex items-center justify-center gap-2 font-space flex-wrap">
+          <p className="text-lg md:text-lg font-bold text-gray-700 uppercase tracking-wider flex items-center justify-center gap-2 font-space flex-wrap">
             <span>👾</span> Upcoming Hackathon Quests <span>👾</span>
           </p>
         </div>
