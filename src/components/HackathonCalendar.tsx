@@ -232,15 +232,24 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
     },
   ],
   '2026-04-05': [
-    {
-      id: 'e5',
-      title: '⚔️ OSC AI Build 1.0',
-      prize: '₹15k / 10k / 5k',
-      url: 'https://hackculture.io/hackathon/osc-ai-build-1-0',
-      prizeColor: 'text-green-600',
-      bgColor: 'bg-[#c7d2fe]', // indigo
-    },
-  ],
+  {
+    id: 'e9',
+    title: '⚡ Hack X – 24 Hour Hackathon',
+    prize: '₹100k / ₹50k',
+    url: 'https://hack-x.devfolio.co/',
+    prizeColor: 'text-purple-600',
+    bgColor: 'bg-[#c4b5fd]', // purple
+    clg:"KJ"
+  },
+  ],'2026-04-07': [{
+  id: 'e10',
+  title: '🕷️ DataHack 4.0 – Into The Spider-Verse',
+  prize: '₹1.5L',
+  url: 'https://datahack.djss4ds.in/',
+  prizeColor: 'text-blue-600',
+  bgColor: 'bg-[#93c5fd]', // blue
+  clg: "DJSCE"
+}],
   '2026-04-17': [
     {
       id: 'e6',
@@ -272,19 +281,7 @@ const hackathonsByDate: Record<string, HackathonEvent[]> = {
     clg: "DJ"
   },
  
-],
- '2026-04-03': [
-  {
-    id: 'e9',
-    title: '⚡ Hack X – 24 Hour Hackathon',
-    prize: '₹100k / ₹50k',
-    url: 'https://hack-x.devfolio.co/',
-    prizeColor: 'text-purple-600',
-    bgColor: 'bg-[#c4b5fd]', // purple
-    clg:"KJ"
-  },
-],
-};
+],};
 
 // --- Sub-component for Event Days ---
 const EventDayCell = ({ day }: { day: CalendarDay }) => {
